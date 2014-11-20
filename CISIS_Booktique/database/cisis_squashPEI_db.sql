@@ -2,8 +2,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS cisis_squash_pei_db;
-use cisis_squash_pei_db;
+CREATE DATABASE IF NOT EXISTS cisis_booktique_db;
+use cisis_booktique_db;
 
 --
 -- Table structure for table `code_type`
@@ -148,32 +148,6 @@ INSERT INTO `code_value` (`code_type_id`, `code_value_sequence`, `english_descri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event`
---
-
-CREATE TABLE IF NOT EXISTS `event` (
-  `event_num` int(10) NOT NULL AUTO_INCREMENT,
-  `member_id` int(6) NOT NULL,
-  `pd_code` int(3) NOT NULL,
-  `date` varchar(10) NOT NULL,
-  `description` varchar(144) NOT NULL,
-  `hour` double(10,2) NOT NULL,
-  PRIMARY KEY (`event_num`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `event`
---
-
-INSERT INTO `event` (`event_num`, `member_id`, `pd_code`, `date`, `description`, `hour`) VALUES
-(1, 1, 1, '10/10/1987', 'test', 0.00),
-(2, 1, 5, '2014-07-15', '', 2.00),
-(3, 1, 3, '2014-07-09', 'This is an audited course.', 0.00),
-(4, 1, 2, '2014-09-09', 'test', 0.00);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `member`
 --
 
@@ -310,18 +284,6 @@ INSERT INTO `notification` (`notification_id`, `notification_type_code`, `notifi
 (13, 1, 'hi', 1, '2014-09-09 15:07:00', NULL, '2014-09-09 15:07:00', NULL),
 (14, 2, 'ayy lmao', 1, '2014-09-09 15:07:42', NULL, '2014-09-09 15:07:42', NULL);
 
--- Payments table
-CREATE TABLE IF NOT EXISTS `member_payment` (
-  `member_payment_id` int(10) NOT NULL AUTO_INCREMENT,
-  `member_id` int(10) NOT NULL,
-  `payment_amount` double NOT NULL COMMENT 'Amount of payment',
-  `payment_detail` varchar(144) DEFAULT NULL COMMENT 'Comments about the payment',
-  `payment_season_code` int(3) NOT NULL COMMENT 'Code type 21 - indicate which season the payment is for.',
-  `created_date_time` datetime NOT NULL,
-  `created_user_id` varchar(20) NOT NULL,
-  `updated_date_time` datetime NOT NULL,
-  `updated_user_id` varchar(20) NOT NULL,
-  PRIMARY KEY (`member_payment_id`));
 
 INSERT INTO `member_bio` (`member_id`, `first_name`, `middle_name`, `last_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `home_phone`, `cell_phone`, `work_phone`, `work_phone_extension`, `fax_number`, `email_address`, `date_of_birth`, `gender_code`) VALUES
 (2, 'Steve', 'Joseph', 'Banks', '333 There Street', NULL, 'Charlottetown', 5, 'c1b0e3', '9025692222', NULL, NULL, NULL, NULL, 'stevebanks@hollandcollege.com', '19950-01-0', 1),
