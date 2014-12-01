@@ -15,8 +15,8 @@
 --%>
 
 <HTML>
-<!--<head><link rel="stylesheet" type="text/css" href="http://bjmac.hccis.info:8080/styles/styles.css"></head>-->
-<head><link rel="stylesheet" type="text/css" href="http://localhost:8080/Booktique/resources/styles/booktiqueStyle.css"></head>
+<head><link rel="stylesheet" type="text/css" href="http://bjmac.hccis.info:8080/styles/styles.css"></head>
+<!--<head><link rel="stylesheet" type="text/css" href="http://localhost:8080/Booktique/resources/styles/booktiqueStyle.css"></head>-->
     <body> 
         <table>
             <tr>
