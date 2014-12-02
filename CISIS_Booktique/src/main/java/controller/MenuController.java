@@ -4,6 +4,7 @@ import beans.ChangePassword;
 import beans.CodeValue;
 import beans.MemberSquash;
 import beans.Notification;
+import beans.Program;
 import business.MemberBO;
 import business.NotificationBO;
 import business.ProgramBO;
@@ -73,6 +74,10 @@ public class MenuController {
             mv = new ModelAndView("program");
             mv.addObject("programs", ProgramBO.getPrograms());
             mv.addObject("menu", new Menu());
+        } else if (menu.getAction().equalsIgnoreCase("Add Program")) {
+            System.out.println("User wants to view add a program");
+            mv = new ModelAndView("programAdd");
+            mv.addObject("program",new Program());
         } else {
             mv = new ModelAndView("welcome");
         }

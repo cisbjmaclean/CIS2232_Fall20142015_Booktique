@@ -75,7 +75,7 @@ public class ProgramDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "update program "
+            sql = "delete from program "
                 + "where program_account_id = ? ";
 
             ps = conn.prepareStatement(sql);
