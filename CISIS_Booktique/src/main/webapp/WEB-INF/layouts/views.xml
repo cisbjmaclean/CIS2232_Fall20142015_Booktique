@@ -24,6 +24,14 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/program/programAdd.jsp" />
 	</definition>
         
+        <definition name="course" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/course/course.jsp" />
+	</definition>
+        
+        <definition name="courseAdd" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/course/courseAdd.jsp" />
+	</definition>
+        
         <definition name="notification" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
 	</definition>

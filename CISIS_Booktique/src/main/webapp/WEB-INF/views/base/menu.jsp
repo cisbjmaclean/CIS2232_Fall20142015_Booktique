@@ -8,6 +8,10 @@
                 </td>
             </tr>
             <tr>
+                <td>        <input type="submit" name="action" value="Courses">
+                </td>
+            </tr>
+            <tr>
                 <td>        <input type="submit" name="action" value="My Information">
                 </td>
             </tr>

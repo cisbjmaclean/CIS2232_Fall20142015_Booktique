@@ -2,9 +2,11 @@ package controller;
 
 import beans.ChangePassword;
 import beans.CodeValue;
+import beans.Course;
 import beans.MemberSquash;
 import beans.Notification;
 import beans.Program;
+import business.CourseBO;
 import business.MemberBO;
 import business.NotificationBO;
 import business.ProgramBO;
@@ -78,6 +80,15 @@ public class MenuController {
             System.out.println("User wants to view add a program");
             mv = new ModelAndView("programAdd");
             mv.addObject("program",new Program());
+        }else if(menu.getAction().equalsIgnoreCase("Courses")){
+            System.out.println("User wants to view the courses");
+            mv = new ModelAndView("course");
+            mv.addObject("courses", CourseBO.getCourses());
+            mv.addObject("menu", new Menu());
+        } else if (menu.getAction().equalsIgnoreCase("Add Course")) {
+            System.out.println("User wants to view add a course");
+            mv = new ModelAndView("courseAdd");
+            mv.addObject("course",new Course());
         } else {
             mv = new ModelAndView("welcome");
         }

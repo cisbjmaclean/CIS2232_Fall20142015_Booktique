@@ -14,7 +14,7 @@
         <title>Programs</title>
         
          <script type="text/javascript">
-        function deleteProgram(test, description) {
+        function deleteCourse(test, description) {
             var r = confirm("<fmt:message key="label.confirm.delete.notification"/> (" + description + ")?");
             if (r == true) {
                 //var s = document.getElementById('action_id');
@@ -22,7 +22,7 @@
 //                document.getElementById('TheForm').action = "notification?delete=" + test";
 //                document.getElementById('TheForm').submit();
 
-                document.forms[0].action = "program?delete=" + test;
+                document.forms[0].action = "course?delete=" + test;
                 document.forms[0].submit();
             }
 
@@ -34,27 +34,27 @@
 <form action="menu"  id="TheForm" method="post">
     <spring:nestedPath path="menu">
         <table>                     
-            <h2><fmt:message key="label.program"/></h2>
+            <h2><fmt:message key="label.course"/></h2>
             ${informationMessage}
             ${errorMessage}
             <hr/>
-            <c:forEach var="thisProgram" items="${programs}"
+            <c:forEach var="thisCourse" items="${courses}"
                        varStatus="loopCounter">
                 <tr>
                     <td>
-                        <c:if test="${thisProgram.programAccountId == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.program.name" /></strong>
-                            ${thisProgram.programName}
+                        <c:if test="${thisCourse.courseId == 2}"><b></c:if>
+                            <p><strong><fmt:message key="label.course.name" /></strong>
+                            ${thisCourse.courseName}
                             </br>
-                            <strong><fmt:message key="label.program.account" /></strong>
-                            ${thisProgram.programAccountId}</p>
-                            <c:if test="${thisProgram.programAccountId == 2}"></b></c:if>
+                            <strong><fmt:message key="label.course.id" /></strong>
+                            ${thisCourse.courseId}</p>
+                            <c:if test="${thisCourse.courseId == 2}"></b></c:if>
                         </td>
                     </tr>
                     <tr align="center">
                         <td>
                             <input type="button" 
-                                   onclick="deleteProgram(${thisProgram.programAccountId}, '${thisProgram.programName}')" value='<fmt:message key="label.delete"/>'>
+                                   onclick="deleteCourse(${thisCourse.courseId}, '${thisCourse.courseName}')" value='<fmt:message key="label.delete"/>'>
                     </td>
                 </tr>
             </c:forEach>
@@ -64,7 +64,7 @@
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" id="TheButton" name="action" value="Add Program">
+                <td>        <input type="submit" id="TheButton" name="action" value="Add Course">
                 </td>
             </tr>
         </table>
