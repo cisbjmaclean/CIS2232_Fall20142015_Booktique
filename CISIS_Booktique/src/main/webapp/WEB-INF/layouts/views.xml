@@ -16,8 +16,8 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
 	</definition>
 
-        <definition name="viewPrograms" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewPrograms.jsp" />
+        <definition name="program" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/program/program.jsp" />
 	</definition>
         
         <definition name="notification" extends="DefaultTemplate">

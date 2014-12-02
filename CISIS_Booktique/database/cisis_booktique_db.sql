@@ -288,3 +288,173 @@ INSERT INTO `notification` (`notification_id`, `notification_type_code`, `notifi
 INSERT INTO `member_bio` (`member_id`, `first_name`, `middle_name`, `last_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `home_phone`, `cell_phone`, `work_phone`, `work_phone_extension`, `fax_number`, `email_address`, `date_of_birth`, `gender_code`) VALUES
 (2, 'Steve', 'Joseph', 'Banks', '333 There Street', NULL, 'Charlottetown', 5, 'c1b0e3', '9025692222', NULL, NULL, NULL, NULL, 'stevebanks@hollandcollege.com', '19950-01-0', 1),
 (1, 'Bruce', 'John', 'MacLean', '123 Here Drive', NULL, 'Stratford', 5, 'c1b0e3', '9025691111', NULL, NULL, NULL, NULL, 'bjmaclean@hollandcollege.com', '2000-01-05', 1);
+
+-- Added booktique database --
+
+--
+-- Table structure for table `publisher`
+--
+
+CREATE TABLE IF NOT EXISTS `publisher` (
+  `publisher_id` int(4) NOT NULL AUTO_INCREMENT COMMENT 'This is the primary key for the publisher',
+  `publisher_name` varchar(36) NOT NULL,
+  `publisher_return_address` varchar(60) NOT NULL,
+  `publisher_notes` varchar(255) NOT NULL,
+  `publisher_fax` varchar(10) NOT NULL,
+  `publisher_phone` int(10) NOT NULL,
+  `publisher_email` varchar(254) NOT NULL,
+  PRIMARY KEY (`publisher_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `publisher`
+--
+
+INSERT INTO `publisher` (`publisher_name`, `publisher_return_address`, `publisher_notes`, `publisher_fax`, `publisher_phone`, `publisher_email`) VALUES
+  ('James Williams', '123 street canada', 'This is good', '999-999-9999', '999-999-9999', 'bob@hotmail.com');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book`
+--
+
+CREATE TABLE IF NOT EXISTS `book` (
+  `book_isbn` int(15) NOT NULL,
+  `book_text` varchar(36) NOT NULL,
+  `book_author` varchar(36) NOT NULL,
+  `publisher_id` int(4) NOT NULL AUTO_INCREMENT ,
+  PRIMARY KEY (`book_isbn`),
+  FOREIGN KEY (`publisher_id`) references publisher(`publisher_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`book_isbn`, `book_text`, `book_author`) VALUES
+  (999999999999999, 'To kill a mockingbird', 'James Williams');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE IF NOT EXISTS `course` (
+  `course_id` int(5) NOT NULL,
+  `course_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `course_name`) VALUES
+  (99999, 'java 2232');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program`
+--
+
+CREATE TABLE IF NOT EXISTS `program` (
+  `program_account_id` int(3) NOT NULL,
+  `program_name` varchar(10) NOT NULL,
+  PRIMARY KEY (`program_account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `program`
+--
+
+INSERT INTO `program` (`program_account_id`, `program_name`) VALUES
+  (999, 'cis');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE IF NOT EXISTS `staff` (
+  `staff_id` int(5) NOT NULL AUTO_INCREMENT,
+  `staff_fname` varchar(30) NOT NULL,
+  `staff_lname` varchar(30) NOT NULL,
+  `staff_email` varchar(254) NOT NULL,
+  `staff_phone` int(10) NOT NULL,
+  PRIMARY KEY (`staff_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `staff_fname`,`staff_lname`, `staff_email`,`staff_phone`) VALUES
+  (99999, 'Don', 'Bowers', 'dfbowers@hollandcollege.com',485-475-8457);
+
+
+--
+-- Table structure for table `course_order`
+--
+
+CREATE TABLE IF NOT EXISTS `course_order` (
+  `course_order_id` int(5) NOT NULL AUTO_INCREMENT,
+  `course_order_notes` varchar (255) NOT NULL,
+  `course_order_qty` int(3) NOT NULL,
+  `course_ordered_date_ordered` datetime NOT NULL,
+  `course_id` int(5) NOT NULL,
+  `program_account_id` int(3) NOT NULL,
+  `book_isbn` int(15) NOT NULL,
+  `course_order_shipping_fee` double(6,2) NOT NULL,
+  `course_order_cost` double(6,2) NOT NULL,
+  `course_order_retail` double(6,2) NOT NULL,
+  `staff_id` int(5) NOT NULL,
+  `course_order_handling_fee` double(6,2) NOT NULL,
+  PRIMARY KEY (`course_order_id`),
+  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`),
+  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`),
+  FOREIGN KEY (`book_isbn`) REFERENCES book(`book_isbn`),
+  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`)
+
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+--
+-- Dumping data for table `course_order`
+--
+
+INSERT INTO `course_order` (`book_isbn`, `course_id`, `program_account_id`,`course_order_id`, `course_order_notes`, `course_order_qty`,`course_ordered_date_ordered`, `course_order_shipping_fee`, `course_order_cost`,`course_order_retail`, `staff_id`, `course_order_handling_fee`) VALUES
+  (999999999999999, 99999, 999, 99999, 'These are some notes', 999, '10/10/1987', 24.99, 24.99, 24.99, 99999, 24.99 );
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_course`
+--
+
+
+
+CREATE TABLE IF NOT EXISTS `program_course` (
+  `course_id` int(5) NOT NULL,
+  `program_course_start` date NOT NULL,
+  `program_course_end` date NOT NULL,
+  `staff_id` int(5) NOT NULL,
+  `program_course_year` int(1) NOT NULL,
+  `program_account_id` int(3) NOT NULL,
+  PRIMARY KEY (`course_id`),
+  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`),
+  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`),
+  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+--
+-- Dumping data for table `program_course`
+--
+
+INSERT INTO `program_course` (`course_id`, `program_course_start`,`program_course_end`, `staff_id`,`program_course_year`, `program_account_id`) VALUES
+  (99999, 01/01/2014, 09/09/2014, 99999, 1, 999);

@@ -6,6 +6,7 @@ import beans.MemberSquash;
 import beans.Notification;
 import business.MemberBO;
 import business.NotificationBO;
+import business.ProgramBO;
 import forms.Menu;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -66,6 +67,11 @@ public class MenuController {
             System.out.println("User wants to view the notifications");
             mv = new ModelAndView("notification");
             mv.addObject("notifications",NotificationBO.getNotifications());
+            mv.addObject("menu", new Menu());
+        }else if(menu.getAction().equalsIgnoreCase("Programs")){
+            System.out.println("User wants to view the programs");
+            mv = new ModelAndView("program");
+            mv.addObject("programs", ProgramBO.getPrograms());
             mv.addObject("menu", new Menu());
         } else {
             mv = new ModelAndView("welcome");
