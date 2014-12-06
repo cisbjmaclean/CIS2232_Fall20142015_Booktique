@@ -416,10 +416,10 @@ CREATE TABLE IF NOT EXISTS `course_order` (
   `staff_id` int(5) NOT NULL,
   `course_order_handling_fee` double(6,2) NOT NULL,
   PRIMARY KEY (`course_order_id`),
-  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`),
-  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`),
-  FOREIGN KEY (`book_isbn`) REFERENCES book(`book_isbn`),
-  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`)
+  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`book_isbn`) REFERENCES book(`book_isbn`) ON DELETE CASCADE,
+  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`) ON DELETE CASCADE
 
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
 
@@ -446,9 +446,9 @@ CREATE TABLE IF NOT EXISTS `program_course` (
   `program_course_year` int(1) NOT NULL,
   `program_account_id` int(3) NOT NULL,
   PRIMARY KEY (`course_id`),
-  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`),
-  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`),
-  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`)
+  FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`course_id`) REFERENCES course(`course_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`program_account_id`) REFERENCES program(`program_account_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

@@ -36,7 +36,7 @@ public class CourseController {
             }
         } else {
 
-            System.out.println("About to add a program (" + course.getCourseName() + ")");
+            System.out.println("About to add a course (" + course.getCourseName() + ")");
             try {
                 CourseBO.insertCourse(course);
                 informationMessage = "Course added";
