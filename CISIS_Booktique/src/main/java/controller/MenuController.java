@@ -2,10 +2,14 @@ package controller;
 
 import beans.ChangePassword;
 import beans.CodeValue;
+import beans.Book;
+import beans.Publisher;
 import beans.Course;
 import beans.MemberSquash;
 import beans.Notification;
 import beans.Program;
+import business.BookBO;
+import business.PublisherBO;
 import business.CourseBO;
 import business.MemberBO;
 import business.NotificationBO;
@@ -89,6 +93,24 @@ public class MenuController {
             System.out.println("User wants to view add a course");
             mv = new ModelAndView("courseAdd");
             mv.addObject("course",new Course());
+        }else if(menu.getAction().equalsIgnoreCase("Books")){
+            System.out.println("User wants to view the books");
+            mv = new ModelAndView("book");
+            mv.addObject("books", BookBO.getBooks());
+            mv.addObject("menu", new Menu());
+        } else if (menu.getAction().equalsIgnoreCase("Add Book")) {
+            System.out.println("User wants to view add a book");
+            mv = new ModelAndView("bookAdd");
+            mv.addObject("book",new Book());
+        }else if(menu.getAction().equalsIgnoreCase("Publishers")){
+            System.out.println("User wants to view the publishers");
+            mv = new ModelAndView("publisher");
+            mv.addObject("publishers", PublisherBO.getPublishers());
+            mv.addObject("menu", new Menu());
+        } else if (menu.getAction().equalsIgnoreCase("Add Publisher")) {
+            System.out.println("User wants to view add a publisher");
+            mv = new ModelAndView("publisherAdd");
+            mv.addObject("publisher",new Publisher());
         } else {
             mv = new ModelAndView("welcome");
         }

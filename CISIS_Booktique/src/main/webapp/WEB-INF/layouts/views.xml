@@ -15,7 +15,23 @@
 	<definition name="login" extends="DefaultTemplateNoMenu">
 	    <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
 	</definition>
-
+        
+        <definition name="book" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/book/book.jsp" />
+	</definition>
+        
+        <definition name="bookAdd" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/book/bookAdd.jsp" />
+	</definition>
+        
+        <definition name="publisher" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/publisher/publisher.jsp" />
+	</definition>
+        
+        <definition name= "publisherAdd" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/publisher/publisherAdd.jsp" />
+	</definition>
+        
         <definition name="program" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/program/program.jsp" />
 	</definition>

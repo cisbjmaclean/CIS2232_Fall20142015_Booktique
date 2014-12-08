@@ -2,7 +2,15 @@
 
 <form action="menu" method="post">
     <spring:nestedPath path="menu">
-        <table>  
+        <table>
+            <tr>
+                <td>        <input type="submit" name="action" value="Books">
+                </td>
+            </tr>
+            <tr>
+                <td>        <input type="submit" name="action" value="Publishers">
+                </td>
+            </tr>
             <tr>
                 <td>        <input type="submit" name="action" value="Programs">
                 </td>
