@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="welcome" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body" value="/WEB-INF/views/base/welcome.jsp"/>
+    </definition>
+
+    <definition name="main" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body" value="/WEB-INF/views/base/main.jsp"/>
+    </definition>
+
+    <definition name="login" extends="DefaultTemplateNoMenu">
+        <put-attribute name="body" value="/WEB-INF/views/base/login.jsp"/>
+    </definition>
+
+    <definition name="book" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/book/book.jsp"/>
+    </definition>
+
+    <definition name="bookAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/book/bookAdd.jsp"/>
+    </definition>
+
+    <definition name="publisher" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/publisher/publisher.jsp"/>
+    </definition>
+
+    <definition name="publisherAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/publisher/publisherAdd.jsp"/>
+    </definition>
+
+    <definition name="program" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/program/program.jsp"/>
+    </definition>
+
+    <definition name="programAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/program/programAdd.jsp"/>
+    </definition>
+
+    <definition name="course" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/course/course.jsp"/>
+    </definition>
+
+    <definition name="courseAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/course/courseAdd.jsp"/>
+    </definition>
+
+    <definition name="notification" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/notification/notification.jsp"/>
+    </definition>
+
+    <definition name="changePassword" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/member/member_change_password.jsp"/>
+    </definition>
+
+    <definition name="notificationAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/notification/notificationAdd.jsp"/>
+    </definition>
+
+    <definition name="viewMembers" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/member/viewMembers.jsp"/>
+    </definition>
+
+    <definition name="memberBio" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/member/memberBio.jsp"/>
+    </definition>
+
+    <definition name="main" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/base/main.jsp"/>
+    </definition>
+
+    <definition name="viewCodeValues" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/codes/viewCodeValues.jsp"/>
+    </definition>
+
+    <definition name="viewCodes" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/codes/viewCodes.jsp"/>
+    </definition>
+
+    <definition name="staff" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/staff/staff.jsp"/>
+    </definition>
+
+    <definition name="staffAdd" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/staff/staffAdd.jsp"/>
+    </definition>
+
+</tiles-definitions>
