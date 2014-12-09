@@ -6,148 +6,6 @@ CREATE DATABASE IF NOT EXISTS cisis_booktique_db;
 use cisis_booktique_db;
 
 --
--- Table structure for table `code_type`
---
-
-CREATE TABLE IF NOT EXISTS `code_type` (
-  `code_type` int(3) NOT NULL COMMENT 'This is the primary key for code types',
-  `english_description` varchar(100) NOT NULL COMMENT 'English description',
-  `french_description` varchar(100) NOT NULL COMMENT 'French description',
-  `created_date_time` datetime NOT NULL,
-  `created_user_id` varchar(20) NOT NULL,
-  `updated_date_time` datetime NOT NULL,
-  `updated_user_id` varchar(20) NOT NULL,
-  PRIMARY KEY (`code_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This hold the code types that are available for the applicat';
-
---
--- Dumping data for table `code_type`
---
-
-INSERT INTO `code_type` (`code_type`, `english_description`, `french_description`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
-(1, 'Organizations', 'Organizations', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(2, 'status', 'status', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(3, 'salutation', 'salutation', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(4, 'circulation group', 'circulation group', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(5, 'provinces', 'provinces', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(6, 'gender', 'gender', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(7, 'Countries', 'Countries', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(8, 'Education designations', 'Education designations', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(9, 'Employment Status', 'Employment Status', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(10, 'Currency Options', 'Currency Options', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(11, 'Practice Areas', 'Practice Areas', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(12, 'Employment Status', 'Employment Status', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(13, 'Employment Category', 'Employment Category', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(14, 'Funding Source', 'Funding Source', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(15, 'Positions', 'Positions', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(16, 'Notification types', 'Notification types', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(17, 'User types', 'User types', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
-(18, 'Divisions', 'Divisions', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
-(19, 'Levels', 'Levels', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
-(20, 'Clubs', 'Clubs', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `code_value`
---
-
-CREATE TABLE IF NOT EXISTS `code_value` (
-  `code_type_id` int(3) NOT NULL COMMENT 'see code_type table',
-  `code_value_sequence` int(3) NOT NULL COMMENT 'Along with code type id make up the primary key',
-  `english_description` varchar(100) NOT NULL COMMENT 'English description',
-  `english_description_short` varchar(20) NOT NULL COMMENT 'English abbreviation for description',
-  `french_description` varchar(100) NOT NULL COMMENT 'French description',
-  `french_description_short` varchar(20) NOT NULL COMMENT 'French abbreviation for description',
-  `created_date_time` datetime NOT NULL,
-  `created_user_id` varchar(20) NOT NULL,
-  `updated_date_time` datetime NOT NULL,
-  `updated_user_id` varchar(20) NOT NULL,
-  PRIMARY KEY (`code_type_id`,`code_value_sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This will hold code values for the application.';
-
---
--- Dumping data for table `code_value`
---
-
-INSERT INTO `code_value` (`code_type_id`, `code_value_sequence`, `english_description`, `english_description_short`, `french_description`, `french_description_short`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) VALUES
-(1, 1, 'PEI Dietitians', 'PEI Dietitians', 'PEI Dietitians', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(2, 1, 'Active', 'Active', 'Active', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(2, 2, 'Inactive', 'Inactive', 'Inactive', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(3, 1, 'Miss', 'Miss', 'Miss', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(3, 2, 'Mr', 'Mr', 'Mr', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(3, 3, 'Mrs', 'Mrs', 'Mrs', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(3, 4, 'Ms', 'Ms', 'Ms', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(3, 5, 'Dr', 'Dr', 'Dr', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(4, 1, 'Members', 'Members', 'Members', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(4, 2, 'Business', 'Business', 'Business', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(4, 3, 'Government', 'Government', 'Government', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(4, 4, 'PEIDA Executive', 'PEIDA Executive', 'PEIDA Executive', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 1, 'Yukon', 'Yukon', 'Yukon', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 2, 'Saskatchewan', 'Saskatchewan', 'Saskatchewan', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 3, 'Quebec', 'Quebec', 'Quebec', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 4, 'Prince Edward Island', 'PEI', 'Prince Edward Island', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 5, 'Ontario', 'Ontario', 'Ontario', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 6, 'Nunavut', 'Nunavut', 'Nunavut', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 7, 'Nova Scotia', 'Nova Scotia', 'Nova Scotia', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 8, 'Northwest Territories', 'NWT', 'Northwest Territories', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 9, 'Newfoundland and Labrador', 'NFLD LAB', 'Newfoundland and Labrador', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 10, 'New Brunswick', 'New Brunswick', 'New Brunswick', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 11, 'Manitoba', 'Manitoba', 'Manitoba', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 12, 'British Columbia', 'British Columbia', 'British Columbia', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(5, 13, 'Alberta', 'Alberta', 'Alberta', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(6, 1, 'Male', 'Male', 'Male', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(6, 2, 'Female', 'Female', 'Female', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(7, 1, 'Canada', 'Canada', 'Canada', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(7, 2, 'United States', 'United States', 'United States', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 1, 'Doctorate', 'phd', 'Doctorate', '0', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
-(8, 2, 'Masters', 'Masters', 'Masters', 'Masters', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 3, 'Baccalaureate', 'Baccalaureate', 'Baccalaureate', 'Baccalaureate', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 4, 'Certificate', 'Certificate', 'Certificate', 'Certificate', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 5, 'Diploma', 'Diploma', 'Diploma', 'Diploma', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 6, 'Other', 'Other', 'Other', 'Other', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(8, 7, 'Internship', 'Internship', 'Internship', 'Internship', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(9, 1, 'Employed as dietitian', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(9, 2, 'Unemployed/Seeking Employment as Dietitian', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(9, 3, 'Unemployed/Not Seeking Employment as Dietitian', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(10, 1, '800 hours within the last five years', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(10, 2, '400 hours within the last five years', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(10, 3, '225 hours in a single continuous block\r\nof work within the last three years', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(10, 4, 'None of the above', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(11, 1, 'Queen Elizabeth Hospital', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(11, 2, 'Prince County Hospital', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(12, 1, 'Full Time', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(12, 2, 'Part Time', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(13, 1, 'Permanent', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(13, 2, 'Temporary', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(13, 3, 'Casual', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(13, 4, 'Self Employed', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(14, 1, 'Public/Government', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(14, 2, 'Private Sector/Individual Client(s)', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(14, 3, 'Public/Private Mix', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(14, 4, 'Public/Government', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(14, 5, 'Other Funding Source', '', '', '0', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(15, 1, 'Dietitian', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(15, 2, 'Other', '', '', '', '2014-06-18 00:00:00', 'BJMACLEAN', '2014-06-18 00:00:00', 'BJMACLEAN'),
-(16, 1, 'Message', 'Message', 'Message', 'Message', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(16, 2, 'Important Message', 'Important Message', 'IM', 'IM', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
-(17, 1, 'Administrator', 'Admin', 'Administrator', 'Admin', '2014-08-16 21:55:23', 'Admin', '2014-08-16 21:55:23', 'Admin'),
-(17, 2, 'Member', 'Member', 'Member', 'Member', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(18, 1, 'Mens', 'Mens', 'M', 'M', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(18, 2, 'Womens', 'Womens', 'W', 'W', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(18, 3, 'Junior', 'Junior', 'J', 'J', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(18, 4, 'Mens Masters', 'Mens Masters', 'MM', 'MM', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(18, 5, 'Womens Masters', 'Womens Masters', 'WM', 'WM', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(19, 1, 'A', 'A', 'A', 'A', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(19, 2, 'B', 'B', 'B', 'B', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(19, 3, 'C', 'C', 'C', 'C', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(19, 4, 'D', 'D', 'D', 'D', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(20, 1, 'Spa', 'Spa', 'Spa', 'Spa', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(20, 2, 'UPEI', 'UPEI', 'UPEI', 'UPEI', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `member`
 --
 
@@ -232,21 +90,6 @@ CREATE TABLE IF NOT EXISTS `member_bio` (
   `date_of_birth` varchar(10) DEFAULT NULL COMMENT 'yyyy-mm-dd format',
   `gender_code` int(3) DEFAULT NULL COMMENT 'code type 6'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Member biographical information';
-
---
--- Table structure for table `member_squash`
---
-
-CREATE TABLE IF NOT EXISTS `member_squash` (
-  `member_id` int(6) DEFAULT NULL,
-  `division_code` int(3) DEFAULT NULL,
-  `level_code` int(3) DEFAULT NULL,
-  `club_code` int(3) DEFAULT NULL,
-  `registration_date` varchar(10) DEFAULT NULL,
-  `permission_add_to_player_list` tinyint(1) DEFAULT NULL COMMENT 'Permission to add to website',
-  `permission_use_photo` tinyint(1) DEFAULT NULL COMMENT 'Permission to use photo',
-  `payment_status` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='squash specific member information';
 
 --
 -- Table structure for table `notification`
@@ -362,8 +205,8 @@ INSERT INTO `course` (`course_id`, `course_name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `program` (
-  `program_account_id` int(3) NOT NULL,
-  `program_name` varchar(10) NOT NULL,
+  `program_account_id` int(5) NOT NULL,
+  `program_name` varchar(50) NOT NULL,
   PRIMARY KEY (`program_account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -372,7 +215,47 @@ CREATE TABLE IF NOT EXISTS `program` (
 --
 
 INSERT INTO `program` (`program_account_id`, `program_name`) VALUES
-  (999, 'cis');
+  (50300, 'Accounting Technology'),
+  (80503, 'Advanced Care Paramedicine'),
+  (80330, 'Applied Degree in Culinary Operations'),
+  (50680, 'Architechural Technology'),
+  (59497, 'Bioscience Technology'),
+  (37573, 'Business Administration'),
+  (49573, 'Child and Health Care Worker'),
+  (48374, 'College Foundation Program'),
+  (49374, 'Computer Information Systems'),
+  (57629, 'Computer Information Systems Distance'),
+  (48473, 'Computer Networking Technology'),
+  (49129, 'Construction Technology'),
+  (87483, 'Culinary Arts'),
+  (10387, 'Dance Performance'),
+  (29474, 'Dental Assisting'),
+  (99383, 'Early Childhood Care and Education'),
+  (84643, 'Electronics Engineering Technology'),
+  (37462, 'Enviromental Applied Science Technology'),
+  (28484, 'Fundamental Arts'),
+  (74404, 'Golf Club Management'),
+  (74639, 'Graphic Design'),
+  (49475, 'Human Resource Management'),
+  (44776, 'Human Services'),
+  (42624, 'International Hospitality Mangement'),
+  (02884, 'Medical Support Services'),
+  (49836, 'Music Performance'),
+  (39487, 'Pastry Arts'),
+  (57498, 'Performing Arts Foundation'),
+  (59383, 'Photography & Digital Imaging'),
+  (39483, 'Plumbing'),
+  (60877, 'Practical Nursing CC'),
+  (39448, 'Practical Nursing Souris'),
+  (49277, 'Primary Care Paramedicine'),
+  (29934, 'Professional Golf Management'),
+  (69693, 'Resident Care Worker CC'),
+  (83649, 'Sport & Leisure Management'),
+  (29484, 'Steamfitting/Pipefitting'),
+  (90983, 'Tourism & Travel Management'),
+  (69338, 'Video Game Art & Animation'),
+  (93645, 'Welding Fabrication'),
+  (48370, 'Wildlife Conservation Technology');
 
 -- --------------------------------------------------------
 
@@ -408,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `course_order` (
   `course_order_qty` int(3) NOT NULL,
   `course_ordered_date_ordered` datetime NOT NULL,
   `course_id` int(5) NOT NULL,
-  `program_account_id` int(3) NOT NULL,
+  `program_account_id` int(5) NOT NULL,
   `book_isbn` int(15) NOT NULL,
   `course_order_shipping_fee` double(6,2) NOT NULL,
   `course_order_cost` double(6,2) NOT NULL,
@@ -428,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `course_order` (
 --
 
 INSERT INTO `course_order` (`book_isbn`, `course_id`, `program_account_id`,`course_order_id`, `course_order_notes`, `course_order_qty`,`course_ordered_date_ordered`, `course_order_shipping_fee`, `course_order_cost`,`course_order_retail`, `staff_id`, `course_order_handling_fee`) VALUES
-  (999999999999999, 99999, 999, 99999, 'These are some notes', 999, '10/10/1987', 24.99, 24.99, 24.99, 99999, 24.99 );
+  (999999999999999, 99999, 50300, 99999, 'These are some notes', 10, '10/10/1987', 24.99, 24.99, 24.99, 99999, 24.99 );
 
 -- --------------------------------------------------------
 
@@ -444,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `program_course` (
   `program_course_end` date NOT NULL,
   `staff_id` int(5) NOT NULL,
   `program_course_year` int(1) NOT NULL,
-  `program_account_id` int(3) NOT NULL,
+  `program_account_id` int(5) NOT NULL,
   PRIMARY KEY (`course_id`),
   FOREIGN KEY (`staff_id`) REFERENCES staff(`staff_id`) ON DELETE CASCADE,
   FOREIGN KEY (`course_id`) REFERENCES course(`course_id`) ON DELETE CASCADE,
@@ -457,4 +340,4 @@ CREATE TABLE IF NOT EXISTS `program_course` (
 --
 
 INSERT INTO `program_course` (`course_id`, `program_course_start`,`program_course_end`, `staff_id`,`program_course_year`, `program_account_id`) VALUES
-  (99999, 01/01/2014, 09/09/2014, 99999, 1, 999);
+  (99999, 01/01/2014, 09/09/2014, 99999, 1, 50300);

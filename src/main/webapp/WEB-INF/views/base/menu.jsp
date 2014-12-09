@@ -24,15 +24,7 @@
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="My Information">
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" name="action" value="Make Payment">
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" name="action" value="Change Password">
+                <td>       <hr>
                 </td>
             </tr>
             <tr>
@@ -49,10 +41,6 @@
             </tr>
             <tr>
                 <td>        <input type="submit" name="action" value="Notifications">
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" name="action" value="View Codes">
                 </td>
             </tr>
             <tr>
