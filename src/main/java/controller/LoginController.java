@@ -3,10 +3,8 @@ package controller;
 import beans.MemberSquash;
 import business.AccessBO;
 import business.MemberSquashBO;
-import business.ProgramBO;
 import database.CodeValueDAO;
 import forms.Login;
-import forms.Menu;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -40,10 +38,15 @@ public class LoginController {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (validCredentials) {
-            
-        mv = new ModelAndView("program");
-        mv.addObject("programs", ProgramBO.getPrograms());
-        mv.addObject("menu", new Menu());
+            CodeValueDAO.loadCodes(request);
+            mv = new ModelAndView("memberBio");
+            MemberSquash ms = new MemberSquash();
+            System.out.println("getting member for " + login.getUsername());
+            request.getSession().setAttribute("loggedInUserId", login.getUsername());
+            MemberSquash theMember = MemberSquashBO.getMemberByUserid(login.getUsername());
+            theMember.getMember().setPassword(login.getPassword());
+            request.getSession().setAttribute("loggedInMember", theMember);
+            mv.addObject("memberSquash", theMember);
         } else {
             mv = new ModelAndView("login");
         }
