@@ -104,7 +104,7 @@ public class ProgramDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM program ";
+            sql = "SELECT * FROM program ORDER BY program_name ASC";
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();

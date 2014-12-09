@@ -43,51 +43,39 @@
             ${informationMessage}
             ${errorMessage}
             <hr/>
+               <tr>
+                <td>        <input type="submit" id="TheButton" name="action" value="Add Publisher">
+                </td>
+            </tr>
+            <tr>
+                <th><strong><fmt:message key="label.publisher.name" /></strong></th>
+                 <th> <strong><fmt:message key="label.publisher.id" /></strong></th>
+                  <th><strong><fmt:message key="label.publisher.address"/></strong></th>
+                   <th><strong><fmt:message key="label.publisher.email"/></strong></th>
+                    <th><strong><fmt:message key="label.publisher.phone"/></strong></th>
+                     <th><strong><fmt:message key="label.publisher.fax"/></strong></th>
+                      <th><strong><fmt:message key="label.publisher.notes"/></strong></th>
+                
+            </tr>
             <c:forEach var="thisPublisher" items="${publishers}"
                        varStatus="loopCounter">
                 <tr>
-                    <td>
-                        <c:if test="${thisPublisher.publisherId == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.publisher.name" /></strong>
-                            ${thisPublisher.name}
-                            </br>
-                            <strong><fmt:message key="label.publisher.id" /></strong>
-                            ${thisPublisher.publisherId}
-                            </br>
-                            <strong><fmt:message key="label.publisher.address"/></strong>
-                            ${thisPublisher.returnAddress}
-                            </br>
-                            <strong><fmt:message key="label.publisher.email"/></strong>
-                            ${thisPublisher.email}
-                            </br>
-                            <strong><fmt:message key="label.publisher.phone"/></strong>
-                            ${thisPublisher.phone}
-                            </br>
-                            <strong><fmt:message key="label.publisher.fax"/></strong>
-                            ${thisPublisher.fax}
-                            </br>
-                            <strong><fmt:message key="label.publisher.notes"/></strong>
-                            ${thisPublisher.notes}
-                            </p>
-                            <c:if test="${thisPublisher.publisherId == 2}"></b></c:if>
-                        </td>
-                    </tr>
-                    <tr align="center">
+                    
+                            <td>${thisPublisher.name}</td>
+                            <td>${thisPublisher.publisherId}</td>
+                            <td>${thisPublisher.returnAddress}</td>
+                            <td>${thisPublisher.email}</td>
+                            <td>${thisPublisher.phone}</td>
+                            <td>${thisPublisher.fax}</td>
+                            <td>${thisPublisher.notes}</td>
                         <td>
                             <input type="button" 
                                    onclick="deletePublisher(${thisPublisher.publisherId}, '${thisPublisher.name}')" value='<fmt:message key="label.delete"/>'>
                     </td>
-                </tr>
+                    </tr>
+               
             </c:forEach>
-            <tr>
-                <td>
-                    <hr/>
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" id="TheButton" name="action" value="Add Publisher">
-                </td>
-            </tr>
+
         </table>
     </spring:nestedPath>
 </form>

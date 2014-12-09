@@ -18,7 +18,7 @@
         <title>Books</title>
 
         <script type="text/javascript">
-            function deleteBook(test, description) {
+            function deleteStaff(test, description) {
                 var r = confirm("<fmt:message key="label.confirm.delete.notification"/> (" + description + ")?");
                 if (r == true) {
                     //var s = document.getElementById('action_id');
@@ -39,44 +39,42 @@
         <spring:nestedPath path="menu">
             <table>
                 <h2><fmt:message key="label.staff"/></h2>
-                <hr>
+                
                     ${informationMessage}
                     ${errorMessage}
-                <c:forEach var="staff" items="${staffMembers}"
-                           varStatus="loopCounter">
-                    <tr>
-                        <td>
-                            <%--<c:if test="${thisBook.isbn == 2}"><b></c:if>--%>
-                            <p><strong><fmt:message key="label.staff.fullname"/></strong>
-                                    ${staff.firstName} ${staff.lastName}
-                                </br>
-                                <strong><fmt:message key="label.staff.email"/></strong>
-                                    ${staff.email}
-                                </br>
-                                <strong><fmt:message key="label.staff.phone"/></strong>
-                                    ${staff.phoneNumber}
-                            </p>
-                            <%--<c:if test="${thisBook.isbn == 2}"></b></c:if>--%>
-                        </td>
-                    </tr>
-                    <%--<tr align="center">--%>
-                    <%--<td>--%>
-                    <%--<input type="button"--%>
-                    <%--onclick="deleteBook(${thisBook.isbn}, '${thisBook.text}')"--%>
-                    <%--value='<fmt:message key="label.delete"/>'>--%>
-                    <%--</td>--%>
-                    <%--</tr>--%>
-                </c:forEach>
-                <tr>
-                    <td>
-                        <hr/>
-                    </td>
-                </tr>
-                <tr>
+                    <hr />
+                        <tr>
                     <td>
                         <input type="submit" id="TheButton" name="action" value="Add Staff">
                     </td>
                 </tr>
+                    <tr>
+                        <th>
+                           <strong><fmt:message key="label.staff.fullname"/></strong> 
+                        </th>
+                        <th>
+                            <strong><fmt:message key="label.staff.email"/></strong>
+                        </th>
+                        <th>
+                            <strong><fmt:message key="label.staff.phone"/></strong>
+                        </th>
+                    </tr>
+                <c:forEach var="staff" items="${staffMembers}"
+                           varStatus="loopCounter">
+                    
+                
+                    <tr>
+                        <td>${staff.firstName} ${staff.lastName}</td>
+                        <td>${staff.email}</td>
+                        <td>${staff.phoneNumber}</td>
+                         <td>
+                            <input type="button" 
+                                   onclick="deleteStaff(${thisStaff.staff_fname}, '${thisStaff.staff_lname}', '${thisStaff.staff_email}', '${thisStaff.staff_phone}')" value='<fmt:message key="label.delete"/>'>
+                    </td>
+                    </tr>
+
+                </c:forEach>
+      
             </table>
         </spring:nestedPath>
     </form>

@@ -37,43 +37,32 @@
                     ${informationMessage}
                     ${errorMessage}
                 <hr/>
+                <tr>
+                    <td><input type="submit" id="TheButton" name="action" value="Add Book">
+                    </td>
+                </tr>
+                <tr>
+                    <th><strong><fmt:message key="label.book.name"/></strong></th>
+                    <th><strong><fmt:message key="label.book.isbn"/></strong></th>
+                    <th><strong><fmt:message key="label.book.author"/></strong></th>
+                    <th><strong><fmt:message key="label.book.publisherId"/></strong></th>
+                </tr>
                 <c:forEach var="thisBook" items="${books}"
                            varStatus="loopCounter">
                     <tr>
-                        <td>
-                            <c:if test="${thisBook.isbn == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.book.name"/></strong>
-                                    ${thisBook.text}
-                                </br>
-                                <strong><fmt:message key="label.book.isbn"/></strong>
-                                    ${thisBook.isbn}
-                                </br>
-                                <strong><fmt:message key="label.book.author"/></strong>
-                                    ${thisBook.author}
-                                </br>
-                                <strong><fmt:message key="label.book.publisherId"/></strong>
-                                    ${thisBook.publisherId}
-                            </p>
-                            <c:if test="${thisBook.isbn == 2}"></b></c:if>
-                        </td>
-                    </tr>
-                    <tr align="center">
-                        <td>
+                        
+                                <td>${thisBook.text}</td>
+                                <td>${thisBook.isbn}</td>
+                                <td>${thisBook.author}</td>
+                                <td>${thisBook.publisherId}</td>
+                      <td>
                             <input type="button"
                                    onclick="deleteBook(${thisBook.isbn}, '${thisBook.text}')"
                                    value='<fmt:message key="label.delete"/>'>
                         </td>
                     </tr>
                 </c:forEach>
-                <tr>
-                    <td>
-                        <hr/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="submit" id="TheButton" name="action" value="Add Book">
-                    </td>
-                </tr>
+
             </table>
         </spring:nestedPath>
     </form>

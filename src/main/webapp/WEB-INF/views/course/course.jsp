@@ -38,35 +38,33 @@
             ${informationMessage}
             ${errorMessage}
             <hr/>
-            <c:forEach var="thisCourse" items="${courses}"
-                       varStatus="loopCounter">
-                <tr>
-                    <td>
-                        <c:if test="${thisCourse.courseId == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.course.name" /></strong>
-                            ${thisCourse.courseName}
-                            </br>
-                            <strong><fmt:message key="label.course.id" /></strong>
-                            ${thisCourse.courseId}</p>
-                            <c:if test="${thisCourse.courseId == 2}"></b></c:if>
-                        </td>
-                    </tr>
-                    <tr align="center">
-                        <td>
-                            <input type="button" 
-                                   onclick="deleteCourse(${thisCourse.courseId}, '${thisCourse.courseName}')" value='<fmt:message key="label.delete"/>'>
-                    </td>
-                </tr>
-            </c:forEach>
-            <tr>
-                <td>
-                    <hr/>
-                </td>
-            </tr>
             <tr>
                 <td>        <input type="submit" id="TheButton" name="action" value="Add Course">
                 </td>
             </tr>
+            <tr>
+                <th>
+                    <p><strong><fmt:message key="label.course.name" /></strong>
+                </th>
+                <th>
+                    <strong><fmt:message key="label.course.id" /></strong>
+                </th>
+            </tr>
+            <c:forEach var="thisCourse" items="${courses}"
+                       varStatus="loopCounter">
+                <tr>
+                    <td>
+                        ${thisCourse.courseName}</td>
+                            <td>${thisCourse.courseId}
+                        </td>
+                        <td>
+                            <input type="button" 
+                                   onclick="deleteCourse(${thisCourse.courseId}, '${thisCourse.courseName}')" value='<fmt:message key="label.delete"/>'>
+                    </td>
+                    </tr>
+                 
+            </c:forEach>
+
         </table>
     </spring:nestedPath>
 </form>
