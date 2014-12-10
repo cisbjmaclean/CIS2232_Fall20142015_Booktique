@@ -37,36 +37,31 @@
             <h2><fmt:message key="label.program"/></h2>
             ${informationMessage}
             ${errorMessage}
-            <hr/>
+            <hr />
+             <tr>
+                <td>        <input type="submit" id="TheButton" name="action" value="Add Program">
+                </td>
+            </tr>
+             <tr>   
+                    <th><strong><fmt:message key="label.program.name" /></strong></th>
+                    <th><strong><fmt:message key="label.program.account" /></strong></th>            
+                    </tr>
             <c:forEach var="thisProgram" items="${programs}"
                        varStatus="loopCounter">
-                <tr>
-                    <td>
-                        <c:if test="${thisProgram.programAccountId == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.program.name" /></strong>
+                    <tr>
+                        <td>                          
                             ${thisProgram.programName}
-                            </br>
-                            <strong><fmt:message key="label.program.account" /></strong>
-                            ${thisProgram.programAccountId}</p>
-                            <c:if test="${thisProgram.programAccountId == 2}"></b></c:if>
                         </td>
-                    </tr>
-                    <tr align="center">
+                        <td>
+                            ${thisProgram.programAccountId}
+                        </td>
                         <td>
                             <input type="button" 
                                    onclick="deleteProgram(${thisProgram.programAccountId}, '${thisProgram.programName}')" value='<fmt:message key="label.delete"/>'>
                     </td>
-                </tr>
+                    </tr>
             </c:forEach>
-            <tr>
-                <td>
-                    <hr/>
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" id="TheButton" name="action" value="Add Program">
-                </td>
-            </tr>
         </table>
     </spring:nestedPath>
 </form>
+    <hr/>
