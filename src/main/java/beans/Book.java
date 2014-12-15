@@ -11,16 +11,16 @@ package beans;
  */
 public class Book {
     
-    private int isbn;
+    private long isbn;
     private int publisherId;
     private String text;
     private String author;
 
-    public int getIsbn() {
+    public long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
 

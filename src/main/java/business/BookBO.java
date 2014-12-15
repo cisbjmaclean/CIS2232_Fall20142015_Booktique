@@ -21,7 +21,7 @@ public class BookBO {
         BookDAO.insertBook(book);
     }
 
-    public static void deleteBook(int bookIsbn) throws Exception{
+    public static void deleteBook(long bookIsbn) throws Exception{
         BookDAO.deleteBook(bookIsbn);
     }
 }

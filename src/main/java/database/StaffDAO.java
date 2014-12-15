@@ -29,7 +29,7 @@ public class StaffDAO {
 		insertStaff(staff.getFirstName(),staff.getLastName(),staff.getEmail(),staff.getPhoneNumber());
 	}
 
-    public static void insertStaff(String firstName, String lastName, String email, int phoneNumber) {      
+    public static void insertStaff(String firstName, String lastName, String email, String phoneNumber) {      
         Connection conn = null;
 
         try {
@@ -47,7 +47,7 @@ public class StaffDAO {
             statement.setString(1, firstName);
             statement.setString(2,lastName);
             statement.setString(3,email);
-            statement.setInt(4,phoneNumber);
+            statement.setString(4,phoneNumber);
             
             statement.executeUpdate();
             
@@ -93,7 +93,7 @@ public class StaffDAO {
                         .firstName(staffResults.getString("staff_fname"))
                         .lastName(staffResults.getString("staff_lname"))
                         .email(staffResults.getString("staff_email"))
-                        .phoneNumber(staffResults.getInt("staff_phone"))
+                        .phoneNumber(staffResults.getString("staff_phone"))
                 );
             }
             

@@ -36,7 +36,8 @@ public class BookDAO {
                     + "VALUES (?, ?, ?, ?)";
 
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, book.getIsbn());
+            
+            ps.setLong(1, book.getIsbn());
             ps.setInt(2, book.getPublisherId());
             ps.setString(3, book.getText());
             ps.setString(4, book.getAuthor());
@@ -55,7 +56,7 @@ public class BookDAO {
     }
 
     
-    public static void deleteBook(int bookIsbn) throws Exception{
+    public static void deleteBook(long bookIsbn) throws Exception{
         
         System.out.println("deleting book");
         PreparedStatement ps = null;
@@ -72,7 +73,7 @@ public class BookDAO {
                 + "where book_isbn = ? ";
 
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, bookIsbn);
+            ps.setLong(1, bookIsbn);
 
             ps.executeUpdate();
 
@@ -103,7 +104,7 @@ public class BookDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Book newBook = new Book();
-                newBook.setIsbn(rs.getInt("book_isbn"));
+                newBook.setIsbn(rs.getLong("book_isbn"));
                 newBook.setPublisherId(rs.getInt("publisher_id"));
                 newBook.setText(rs.getString("book_text"));
                 newBook.setAuthor(rs.getString("book_author"));

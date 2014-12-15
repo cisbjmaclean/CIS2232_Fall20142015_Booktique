@@ -13,7 +13,7 @@ public class Staff {
     private String firstName;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     
     public Staff firstName(String name) {
         setFirstName(name);
@@ -30,7 +30,7 @@ public class Staff {
         return this;
     }
     
-    public Staff phoneNumber(int number) {
+    public Staff phoneNumber(String number) {
         setPhoneNumber(number);
         return this;
     }
@@ -62,11 +62,11 @@ public class Staff {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
    
