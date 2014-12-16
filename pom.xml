@@ -97,7 +97,13 @@
             <artifactId>jstl</artifactId>
             <version>${javax.jstl.version}</version>
             <scope>runtime</scope>
-        </dependency>    
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>

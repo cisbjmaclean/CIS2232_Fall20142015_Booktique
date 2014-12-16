@@ -1,3 +1,11 @@
+<%--
+    This current view is non-function.
+
+    The final implementation will have all the orders listed, along with information about their related objects
+    (courses, person placing order, books, etc).
+
+--%>
+
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -34,39 +42,37 @@
 <form action="menu"  id="TheForm" method="post">
     <spring:nestedPath path="menu">
         <table>                     
-            <h2><fmt:message key="label.course"/></h2>
+            <h2><fmt:message key="label.courseorder"/></h2>
             ${informationMessage}
             ${errorMessage}
             <hr/>
+            <tr>
+                <td>        <input type="submit" id="TheButton" name="action" value="Add Order">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <p><strong><fmt:message key="label.course.name" /></strong>
+                </th>
+                <th>
+                    <strong><fmt:message key="label.course.id" /></strong>
+                </th>
+            </tr>
             <c:forEach var="thisCourse" items="${courses}"
                        varStatus="loopCounter">
                 <tr>
                     <td>
-                        <c:if test="${thisCourse.courseId == 2}"><b></c:if>
-                            <p><strong><fmt:message key="label.course.name" /></strong>
-                            ${thisCourse.courseName}
-                            </br>
-                            <strong><fmt:message key="label.course.id" /></strong>
-                            ${thisCourse.courseId}</p>
-                            <c:if test="${thisCourse.courseId == 2}"></b></c:if>
+                        ${thisCourse.courseName}</td>
+                            <td>${thisCourse.courseId}
                         </td>
-                    </tr>
-                    <tr align="center">
                         <td>
                             <input type="button" 
                                    onclick="deleteCourse(${thisCourse.courseId}, '${thisCourse.courseName}')" value='<fmt:message key="label.delete"/>'>
                     </td>
-                </tr>
+                    </tr>
+                 
             </c:forEach>
-            <tr>
-                <td>
-                    <hr/>
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" id="TheButton" name="action" value="Add Course">
-                </td>
-            </tr>
+
         </table>
     </spring:nestedPath>
 </form>

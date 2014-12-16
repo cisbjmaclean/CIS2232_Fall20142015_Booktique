@@ -1,3 +1,13 @@
+<%--
+    This current view is non-function.
+
+    The final implementation of the course-order-add form will use all other available data
+    (books in the database, staff table, programs table, courses table, etc) to populate
+    elements to ease the process of ordering books.
+
+--%>
+
+
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
