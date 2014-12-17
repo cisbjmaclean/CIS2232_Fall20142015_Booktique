@@ -1,12 +1,9 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    
-
 
 <html:html lang="true">
     <head>
@@ -17,15 +14,9 @@
         function deleteProgram(test, description) {
             var r = confirm("<fmt:message key="label.confirm.delete.notification"/> (" + description + ")?");
             if (r == true) {
-                //var s = document.getElementById('action_id');
-                //s.value = test;
-//                document.getElementById('TheForm').action = "notification?delete=" + test";
-//                document.getElementById('TheForm').submit();
-
                 document.forms[0].action = "program?delete=" + test;
                 document.forms[0].submit();
             }
-
         }
     </script> 
         
@@ -39,7 +30,8 @@
             ${errorMessage}
             <hr />
              <tr>
-                <td>        <input type="submit" id="TheButton" name="action" value="Add Program">
+                <td>        
+                    <input type="submit" id="TheButton" name="action" value="Add Program">
                 </td>
             </tr>
              <tr>   
@@ -56,8 +48,7 @@
                             ${thisProgram.programAccountId}
                         </td>
                         <td>
-                            <input type="button" 
-                                   onclick="deleteProgram(${thisProgram.programAccountId}, '${thisProgram.programName}')" value='<fmt:message key="label.delete"/>'>
+                            <input type="button"onclick="deleteProgram(${thisProgram.programAccountId}, '${thisProgram.programName}')" value='<fmt:message key="label.delete"/>'>
                     </td>
                     </tr>
             </c:forEach>

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package database;
 
 import beans.Program;
@@ -18,11 +14,7 @@ import util.DbUtils;
  */
 public class ProgramDAO {
     /**
-     * This method will insert.
-     *
-     * @return
-     * @author BJ
-     * @since 20140615
+     * This method will insert items to the program table
      */
     public static void insertProgram(Program program) throws Exception {
         System.out.println("inserting program");
@@ -58,9 +50,7 @@ public class ProgramDAO {
     }
 
     /**
-     * Delete the specified member education (set to inactive)
-     * @param memberId
-     * @param memberEducationSequence 
+     * Delete program method
      */
     public static void deleteProgram(int programAccountId) throws Exception{
         
@@ -70,7 +60,7 @@ public class ProgramDAO {
         Connection conn = null;
 
         /*
-         * Setup the sql to update or insert the row.
+         * Setup the sql to delete a program
          */
         try {
             conn = ConnectionUtils.getConnection();
@@ -95,7 +85,9 @@ public class ProgramDAO {
     }
         
 
-    
+    /*
+         * Get Programs method
+         */
     public static ArrayList<Program> getPrograms() {
         ArrayList<Program> programs = new ArrayList();
         PreparedStatement ps = null;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package database;
 import beans.Course;
 import java.sql.Connection;
@@ -15,6 +11,10 @@ import util.DbUtils;
  *
  * @author Robert
  */
+
+    /**
+     * This method will insert items to the program table
+     */
 public class CourseDAO {
     public static void insertCourse(Course course) throws Exception {
         System.out.println("inserting course");
@@ -50,9 +50,7 @@ public class CourseDAO {
     }
 
     /**
-     * Delete the specified member education (set to inactive)
-     * @param memberId
-     * @param memberEducationSequence 
+     * Delete Course Method
      */
     public static void deleteCourse(int courseId) throws Exception{
         
@@ -61,9 +59,7 @@ public class CourseDAO {
         String sql = null;
         Connection conn = null;
 
-        /*
-         * Setup the sql to update or insert the row.
-         */
+        
         try {
             conn = ConnectionUtils.getConnection();
 
@@ -87,7 +83,7 @@ public class CourseDAO {
     }
         
 
-    
+    //Get Course Method
     public static ArrayList<Course> getCourses() {
         ArrayList<Course> courses = new ArrayList();
         PreparedStatement ps = null;

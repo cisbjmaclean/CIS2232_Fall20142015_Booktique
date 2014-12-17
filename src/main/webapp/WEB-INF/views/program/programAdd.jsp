@@ -20,13 +20,13 @@
                 </td>
             </tr>
             <tr>
-                <td><label class="alignCenter"  for="programName">  
+                <td>
+                    <label class="alignCenter"  for="programName">  
                         <strong><fmt:message key="label.program.name" /></strong></label><br />
                         <td>
                             <form:input path="programName" value=""/>
                         </td>
             </tr>
-
             <tr/>
             <tr align="center">
                 <td colspan="2">
@@ -34,7 +34,6 @@
                 </td>
             </tr>
         </table>
-
     </div>
 </spring:nestedPath>
 </html:form>
